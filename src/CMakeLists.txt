@@ -1,16 +1,18 @@
-set(FONTES_LIB
-    strategy.cpp
-)
+set(SOURCE_LIB
+    "person.cpp"
+    "strategy/magic_card_strategy.cpp"
+ "strategy/trap_card_strategy.cpp" "strategy/card.cpp")
 
-set(HEADERS_LIB
-    strategy.hpp
-)
+set(HEADER_LIB
+    "person.h"
+    "strategy/magic_card_strategy.h"
+    "strategy/trap_card_strategy.h" "strategy/card.h")
 
-add_library(MinhaLibCore STATIC
-    ${FONTES_LIB}
-    ${HEADERS_LIB}
-)
+add_library(LibCore STATIC
+    ${SOURCE_LIB}
+    ${HEADER_LIB}
+ )
 
-add_executable(DesignPatternsCpp main.cpp)
+add_executable(DesignPatternsCpp main.cpp )
 
-target_link_libraries(DesignPatternsCpp PRIVATE MinhaLibCore)
+target_link_libraries(DesignPatternsCpp PRIVATE LibCore)

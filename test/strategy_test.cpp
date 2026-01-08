@@ -1,10 +1,28 @@
 #include <catch2/catch_test_macros.hpp>
+#include <strategy/magic_card_strategy.h>
+#include <strategy/card.h>
+#include <strategy/trap_card_strategy.h>
 
-int Adicionar(int a, int b) {
-    return a + b;
-}
+TEST_CASE("When play a card") {
 
-TEST_CASE("Verificando a funcao de soma", "[soma]") {
-    REQUIRE(Adicionar(2, 2) == 4);
-    REQUIRE(Adicionar(10, -2) == 8);
+    SECTION("Then should execute successfully") {
+
+        SECTION("Given a magic card strategy") {
+            //Given
+            auto card = Card(std::make_unique<MagicCardStrategy>());
+            //When
+			auto actual = card.play();
+            //Then
+            REQUIRE(actual == "Playing a magic card!");
+        }
+
+        SECTION("Given a trap card strategy") {
+            //Given
+            auto card = Card(std::make_unique<TrapCardStrategy>());
+            //When
+            auto actual = card.play();
+            //Then
+            REQUIRE(actual == "Playing a trap card!");
+        }
+	}
 }

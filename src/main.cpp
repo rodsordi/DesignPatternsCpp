@@ -1,9 +1,9 @@
 #include <iostream>
-#include "strategy.hpp"
+#include "person.h"
 
 using namespace std;
 
 int main() {
-    auto strategy = Strategy(1, "Abc123");
-	cout << strategy.getId() << " " << strategy.getName() << endl;
+    auto person = Person(1, "Abc123");
+	cout << person.getId() << " " << person.getName() << endl;
 }

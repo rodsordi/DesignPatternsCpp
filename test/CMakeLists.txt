@@ -7,7 +7,7 @@ add_executable(RodarTestes ${FONTES_TESTES})
 target_include_directories(RodarTestes PRIVATE ${CMAKE_SOURCE_DIR}/src)
 
 target_link_libraries(RodarTestes PRIVATE 
-    MinhaLibCore 
+    LibCore 
     Catch2::Catch2WithMain
 )
 
