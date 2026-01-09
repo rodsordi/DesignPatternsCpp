@@ -3,7 +3,7 @@
 #include <memory>
 
 class GameInfo {
-public:
+private:
 	class StudioInfo {
 		friend class GameInfo;
 
@@ -11,7 +11,7 @@ public:
 		std::string name;
 		std::string site;
 
-	private:
+	public:
 		StudioInfo(
 			std::string name,
 			std::string site) :
@@ -27,39 +27,41 @@ public:
 	};
 
 private:
-	inline static GameInfo* instance = nullptr;
 	std::string name;
 	int version;
-	GameInfo::StudioInfo* studio;
+	std::unique_ptr<StudioInfo> studio;
 
 private:
 	GameInfo(
 		std::string name,
 		int version,
-		GameInfo::StudioInfo* studio) :
+		std::unique_ptr<StudioInfo> studio) :
 		name(name),
 		version(version),
-		studio(studio)
+		studio(std::move(studio))
 	{
 	}
 
 public:
 	GameInfo(GameInfo& other) = delete;
-
+	GameInfo(GameInfo&& other) = delete;
 	void operator=(const GameInfo&) = delete;
+	void operator=(const GameInfo&&) = delete;
 
-	static GameInfo* getInstance() {
-		if (instance == nullptr) {
-			instance = new GameInfo(
-				"MyGame",
-				1,
-				new GameInfo::StudioInfo(
-					"GameStudio",
-					"https://gamestudio.example.com"
-				)
-			);
-		}
+	static GameInfo& getInstance() {
+		static GameInfo instance(
+			"MyGame",
+			1,
+			std::make_unique<GameInfo::StudioInfo>(
+				"GameStudio",
+				"https://gamestudio.example.com"
+			)
+		);
 		return instance;
+	}
+
+	StudioInfo& getStudioInfo() {
+		return *studio;
 	}
 
 	std::string toString() {
