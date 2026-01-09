@@ -2,5 +2,5 @@
 
 std::string Card::play()
 {
-	return cardStrategy_->play();
+	return cardStrategy->play();
 }

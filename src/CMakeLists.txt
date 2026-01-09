@@ -1,12 +1,6 @@
-set(SOURCE_LIB
-    "person.cpp"
-    "strategy/magic_card_strategy.cpp"
- "strategy/trap_card_strategy.cpp" "strategy/card.cpp")
+set(SOURCE_LIB "Person.cpp" "strategy/MagicCardStrategy.cpp" "strategy/TrapCardStrategy.cpp" "strategy/Card.cpp" )
 
-set(HEADER_LIB
-    "person.h"
-    "strategy/magic_card_strategy.h"
-    "strategy/trap_card_strategy.h" "strategy/card.h")
+set(HEADER_LIB "Person.h" "strategy/MagicCardStrategy.h" "strategy/TrapCardStrategy.h" "strategy/Card.h" "strategy/CardStrategy.h" "singleton/GameInfo.h")
 
 add_library(LibCore STATIC
     ${SOURCE_LIB}

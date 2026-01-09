@@ -1,16 +1,16 @@
 #pragma once
 #include <string>
-#include "magic_card_strategy.h"
+#include "MagicCardStrategy.h"
 #include <memory>
 
 class Card {
 private:
-	std::unique_ptr<CardStrategy> cardStrategy_;
+	std::unique_ptr<CardStrategy> cardStrategy;
 
 public:
-	Card(std::unique_ptr<CardStrategy> &&cardStrategy)
+	Card(std::unique_ptr<CardStrategy> cardStrategy) :
+		cardStrategy(std::move(cardStrategy))
 	{
-		cardStrategy_ = std::move(cardStrategy);
 	}
 
 	std::string play();

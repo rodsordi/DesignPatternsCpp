@@ -1,4 +1,4 @@
-#include "trap_card_strategy.h"
+#include "TrapCardStrategy.h"
 
 TrapCardStrategy::TrapCardStrategy() : CardStrategy() {}
 

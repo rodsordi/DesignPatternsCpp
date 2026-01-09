@@ -1,5 +1,5 @@
 #pragma once
-#include "card_strategy.h"
+#include "CardStrategy.h"
 
 class MagicCardStrategy : public CardStrategy {
 public:

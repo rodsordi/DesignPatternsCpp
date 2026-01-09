@@ -1,4 +1,4 @@
-#include "magic_card_strategy.h"
+#include "MagicCardStrategy.h"
 
 MagicCardStrategy::MagicCardStrategy() : CardStrategy() {}
 

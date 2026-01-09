@@ -1,9 +1,9 @@
 #include <catch2/catch_test_macros.hpp>
-#include <strategy/magic_card_strategy.h>
+#include <strategy/MagicCardStrategy.h>
 #include <strategy/card.h>
-#include <strategy/trap_card_strategy.h>
+#include <strategy/TrapCardStrategy.h>
 
-TEST_CASE("When play a card") {
+TEST_CASE("When playing a card") {
 
     SECTION("Then should execute successfully") {
 
