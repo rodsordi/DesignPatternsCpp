@@ -24,7 +24,10 @@ TEST_CASE("When getting the toString from GameMatch") {
 
 		SECTION("Given a builded GameMatch created from Director::createRankedVersusMatch") {
 			//Given
-			auto gameMatch = GameMatchDirector::createRankedVersusMatch();
+			auto gameMatch = std::make_unique<GameMatchDirector>()
+				->createRankedVersusMatch()
+				.getBuilder()
+				->build();
 			//When
 			auto actual = gameMatch->toString();
 			//Then
@@ -33,7 +36,10 @@ TEST_CASE("When getting the toString from GameMatch") {
 
 		SECTION("Given a builded GameMatch created from Director::createCasualCoopMatch") {
 			//Given
-			auto gameMatch = GameMatchDirector::createCasualCoopMatch();
+			auto gameMatch = std::make_unique<GameMatchDirector>()
+				->createCasualCoopMatch()
+				.getBuilder()
+				->build();
 			//When
 			auto actual = gameMatch->toString();
 			//Then

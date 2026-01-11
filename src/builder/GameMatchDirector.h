@@ -4,9 +4,19 @@
 
 class GameMatchDirector {
 
+private:
+	std::unique_ptr<GameMatch::Builder> builder;
+
 public:
-	static std::unique_ptr<GameMatch> createRankedVersusMatch() {
-		return std::make_unique<GameMatch::Builder>()
+	GameMatchDirector() : builder(std::make_unique<GameMatch::Builder>()) {}
+
+	std::unique_ptr<GameMatch::Builder> getBuilder() {
+		return std::move(builder);
+	}
+
+public:
+	GameMatchDirector& createRankedVersusMatch() {
+		builder
 			->setType(GameMatch::Type::VERSUS)
 			.setMaxPlayers(4)
 			.setRanked(true)
@@ -14,15 +24,17 @@ public:
 			.addEnemy("Enemy2")
 			.addEnemy("Enemy3")
 			.build();
+		return *this;
 	}
 
-	static std::unique_ptr<GameMatch> createCasualCoopMatch() {
-		return std::make_unique<GameMatch::Builder>()
+	GameMatchDirector& createCasualCoopMatch() {
+		builder
 			->setType(GameMatch::Type::COOP)
 			.setMaxPlayers(2)
 			.setRanked(false)
 			.addEnemy("Enemy1")
 			.clearEnemies()
 			.build();
+		return *this;
 	}
 };
