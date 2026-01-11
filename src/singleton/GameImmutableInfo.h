@@ -67,7 +67,7 @@ private:
 		}
 
 		std::string toString() const {
-			auto addressesStr = std::string();
+			std::string addressesStr;
 			for (const auto& address : addresses) {
 				addressesStr += address.toString() + " ";
 			}

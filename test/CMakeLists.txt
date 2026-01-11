@@ -1,4 +1,4 @@
-set(SOURCE_TEST "StrategyTest.cpp" "SingletonTest.cpp")
+set(SOURCE_TEST "StrategyTest.cpp" "SingletonTest.cpp" "BuilderTest.cpp")
 
 add_executable(RunTests ${SOURCE_TEST})
 

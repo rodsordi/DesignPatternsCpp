@@ -1,7 +1,7 @@
 #include <catch2/catch_test_macros.hpp>
 #include "singleton/GameImmutableInfo.h"
 
-TEST_CASE("When getting the toString info of GameImmutableInfo") {
+TEST_CASE("When getting the toString info from GameImmutableInfo") {
 
     SECTION("Then should execute successfully") {
 
