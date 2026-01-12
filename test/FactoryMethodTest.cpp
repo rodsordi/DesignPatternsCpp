@@ -1,7 +1,7 @@
 #include <catch2/catch_test_macros.hpp>
-#include "abstract_factory/EnemySpawn.h"
-#include <abstract_factory/GoblinSpawn.h>
-#include <abstract_factory/KoboldSpawn.h>
+#include "factory_method/EnemySpawn.h"
+#include <factory_method/GoblinSpawn.h>
+#include <factory_method/KoboldSpawn.h>
 
 TEST_CASE("When enemy do shout") {
 
